@@ -7,3 +7,12 @@ import krita
 def saveDMI(file_path):
     doc = Krita.instance().openDocument(file_path)
     root = doc.rootNode()
+    
+    for state_node in root.childNodes():
+        if state_node.type() == "paintlayer":
+        elif state_node.type() == "grouplayer":
+            for dir_node in state_node.childNodes():
+                if state_node.type() == "paintlayer":
+                elif state_node.type() == "grouplayer":
+                    for frame_node in dir_node.childNodes():
+                        if state_node.type() == "paintlayer":
