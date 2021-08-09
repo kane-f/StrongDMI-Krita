@@ -20,7 +20,7 @@ def saveDMI(self, file_path):
             current_icon = Image.open("tmp.png")
             dmi.states[state_node.name()].dirs = 1
             dmi.states[state_node.name()].icons += [current_icon] # Has to be in [] to be iterable
-            dmi.states[state_node.name()].delay += 0 # Blank value
+            #dmi.states[state_node.name()].delay += "0"
             os.remove("tmp.png")
         elif state_node.type() == "grouplayer": # If node is group layer
             for dir_node in state_node.childNodes():
