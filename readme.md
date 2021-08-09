@@ -8,12 +8,11 @@
 
 ### Linux
 
-* cd ~/.local/share/krita/pykrita/
 * git clone https://github.com/kane-f/strongdmi-krita.git
-* cd strongdmi-krita
-* rm -rf .git* readme.md
-* mv * ../
-* Enable plugin in "Settings > Configure Krita"
+* cp * ~/.local/share/krita/pykrita
+* rm -rf ~/.local/share/krita/pykrita/.git* ~/.local/share/krita/pykrita/readme.md
+
+Or run install.sh
 
 ## Features:
 
