@@ -4,13 +4,8 @@
 
 * BYONDTools
 
-## Features coded:
+## Features:
 
-* Loading and saving .dmi files into and from Krita, as functions.
+* Loading and saving .dmi files into and from Krita from the actions menu, with file pickers.
 * Splitting .dmi into layers.
 * Naming of layers based on icon state, dirs and frame delays.
-
-## To be coded:
-
-* Plugin/extension integration.
-* Integration with file picker (opening as .dmi calls loading, can save as .dmi).
