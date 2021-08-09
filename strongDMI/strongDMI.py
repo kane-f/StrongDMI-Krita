@@ -1,4 +1,5 @@
 from krita import *
+from PyQt5.QtWidgets import QFileDialog
 
 class StrongDMI(Extension):
     from .load import loadDMI

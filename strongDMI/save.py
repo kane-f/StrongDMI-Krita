@@ -1,5 +1,4 @@
 from PIL import Image
-import io
 from byond.DMI import DMI, State
 from byond import directions
 import krita
