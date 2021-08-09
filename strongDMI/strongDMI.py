@@ -20,11 +20,11 @@ class StrongDMI(Extension):
         action2.triggered.connect(self.saveDialogue)
 
     def loadDialogue(self):
-        file_path = QFileDialog.getSaveFileName()[0]
-        loadDMI(file_path)
+        file_path = QFileDialog.getOpenFileName()[0]
+        self.loadDMI(file_path)
     
     def saveDialogue(self):
         doc =  Krita.instance().activeDocument()
         if doc is not None:
             file_path = QFileDialog.getSaveFileName()[0]
-            saveDMI(file_path)
+            self.saveDMI(file_path)
