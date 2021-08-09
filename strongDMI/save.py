@@ -15,7 +15,7 @@ def saveDMI(file_path):
     for state_node in root.childNodes():
         dmi.states[state_node.name()] = State(state_node.name())
         if state_node.type() == "paintlayer":
-            current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())))
+            current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())).getvalue())
             dmi.states[state_node.name()].dirs = 1
             dmi.states[state_node.name()].icons[0] = current_icon
             dmi.states[state_node.name()].delay[0] = 0
@@ -23,7 +23,7 @@ def saveDMI(file_path):
             i = 0
             for dir_node in state_node.childNodes():
                 if dir_node.type() == "paintlayer":
-                    current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())))
+                    current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())).getvalue())
                     dmi.states[state_node.name()].frames = len(state_node.childNodes())
                     dmi.states[state_node.name()].dirs = 1
                     dmi.states[state_node.name()].icons[i] = current_icon
@@ -32,7 +32,7 @@ def saveDMI(file_path):
                 elif dir_node.type() == "grouplayer":
                     for frame_node in dir_node.childNodes():
                         if frame_node.type() == "paintlayer":
-                            current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())))
+                            current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())).getvalue())
                             dmi.states[state_node.name()].frames = len(dir_node.childNodes())
                             dmi.states[state_node.name()].dirs = len(state_node.childNodes())
                             dmi.states[state_node.name()].icons[i] = current_icon
