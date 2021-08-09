@@ -1,5 +1,4 @@
 from byond.DMI import DMI
-from byond.DMI.state import DMIState
 from byond import directions
 import krita
 
