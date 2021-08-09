@@ -5,7 +5,7 @@ import krita
 # File that handles loading the .dmi and splitting it into layers and groups.
 # TODO: Add keyframe support whenever Krita's python API fully supports it, will look much less painstaking than layers and was the original idea. Also remove deprecated division thing.
 
-def loadDMI(file_path):
+def loadDMI(self, file_path):
     dmi = DMI(file_path)
     dmi.loadAll()
         

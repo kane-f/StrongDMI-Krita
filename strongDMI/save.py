@@ -6,7 +6,7 @@ import krita
 # File that handles saving the .dmi from layers and groups.
 # TODO: Write more stuff in and out, keep full compatiability.
 
-def saveDMI(file_path):
+def saveDMI(self, file_path):
     dmi = DMI("tmp.dmi") # To get around file not found issues
     doc = Krita.instance().activeDocument()
     assert doc # Make sure a doc is open
