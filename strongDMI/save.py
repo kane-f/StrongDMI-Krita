@@ -18,6 +18,7 @@ def saveDMI(self, file_path):
         if state_node.type() == "paintlayer": # If node is paint layer
             state_node.save("tmp.png", 72., 72., krita.InfoObject(), state_node.bounds())
             current_icon = Image.open("tmp.png")
+            dmi.states[state_node.name()].frames = 1
             dmi.states[state_node.name()].dirs = 1
             dmi.states[state_node.name()].icons += [current_icon] # Has to be in [] to be iterable
             #dmi.states[state_node.name()].delay += "0"
