@@ -1,13 +1,13 @@
 from PIL import Image
 import io
-from byond.DMI import DMI
+from byond.DMI import DMI, State
 from byond import directions
 import krita
 
 # File that handles saving the .dmi from layers and groups.
 
 def saveDMI(file_path):
-    dmi = DMI()
+    dmi = DMI("tmp.dmi")
     doc = Krita.instance().openDocument(file_path)
     root = doc.rootNode()
     
@@ -15,7 +15,7 @@ def saveDMI(file_path):
     for state_node in root.childNodes():
         if state_node.type() == "paintlayer":
             current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())))
-            dmi.states[state_node.name()] = DMIState(state_node.name())
+            dmi.states[state_node.name()] = State(state_node.name())
             dmi.states[state_node.name()].frames = 0
             dmi.states[state_node.name()].dirs = 1
             dmi.states[state_node.name()].icons[i] = current_icon
@@ -24,7 +24,7 @@ def saveDMI(file_path):
             for dir_node in state_node.childNodes():
                 if dir_node.type() == "paintlayer":
                     current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())))
-                    dmi.states[state_node.name()] = DMIState(state_node.name())
+                    dmi.states[state_node.name()] = State(state_node.name())
                     dmi.states[state_node.name()].frames = len(state_node.childNodes())
                     dmi.states[state_node.name()].dirs = 1
                     dmi.states[state_node.name()].icons[i] = current_icon
@@ -33,7 +33,7 @@ def saveDMI(file_path):
                     for frame_node in dir_node.childNodes():
                         if frame_node.type() == "paintlayer":
                             current_icon = Image.open(io.BytesIO(state_node.pixelData(0,0,doc.width(),doc.height())))
-                            dmi.states[state_node.name()] = DMIState(state_node.name())
+                            dmi.states[state_node.name()] = State(state_node.name())
                             dmi.states[state_node.name()].frames = len(dir_node.childNodes())
                             dmi.states[state_node.name()].dirs = len(state_node.childNodes())
                             dmi.states[state_node.name()].icons[i] = current_icon
@@ -42,4 +42,4 @@ def saveDMI(file_path):
                             
     dmi.icon_width = doc.width()
     dmi.icon_height = doc.height()
-    dmi.save(file_path)
+    dmi.save(file_path,sort=False)
