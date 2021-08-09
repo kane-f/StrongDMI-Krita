@@ -6,7 +6,7 @@
 
 ## Features coded:
 
-* Loading .dmi files into Krita, as a function.
+* Loading and saving .dmi files into and from Krita, as functions.
 * Splitting .dmi into layers.
 * Naming of layers based on icon state, dirs and frame delays.
 
@@ -14,4 +14,3 @@
 
 * Plugin/extension integration.
 * Integration with file picker (opening as .dmi calls loading, can save as .dmi).
-* Saving .dmi files.
