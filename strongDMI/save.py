@@ -18,7 +18,7 @@ def saveDMI(file_path):
             dmi.states[state_node.name()].dirs = 1
             dmi.states[state_node.name()].icons[0] = current_icon
             dmi.states[state_node.name()].delay[0] = 0
-        i += 0
+        i = 0
         elif state_node.type() == "grouplayer":
             for dir_node in state_node.childNodes():
                 if dir_node.type() == "paintlayer":
