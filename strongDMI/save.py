@@ -9,6 +9,7 @@ import krita
 def saveDMI(file_path):
     dmi = DMI("tmp.dmi")
     doc = Krita.instance().activeDocument()
+    assert doc
     root = doc.rootNode()
     
     for state_node in root.childNodes():
