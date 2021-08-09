@@ -8,7 +8,7 @@ import krita
 
 def saveDMI(file_path):
     dmi = DMI("tmp.dmi")
-    doc = Krita.instance().openDocument(file_path)
+    doc = Krita.instance().activeDocument()
     root = doc.rootNode()
     
     for state_node in root.childNodes():
