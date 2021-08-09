@@ -26,7 +26,7 @@ def saveDMI(self, file_path):
         elif state_node.type() == "grouplayer": # If node is group layer
             for dir_node in state_node.childNodes():
                 if dir_node.type() == "paintlayer":
-                    state_node.save("tmp.png", 72., 72., krita.InfoObject(), state_node.bounds())
+                    state_node.save("tmp.png", 72., 72., krita.InfoObject(), dir_node.bounds())
                     current_icon = Image.open("tmp.png")
                     dmi.states[state_node.name()].frames = len(state_node.childNodes()) # Frames is amount of layers under this group
                     dmi.states[state_node.name()].dirs = 1
@@ -36,7 +36,7 @@ def saveDMI(self, file_path):
                 elif dir_node.type() == "grouplayer":
                     for frame_node in dir_node.childNodes():
                         if frame_node.type() == "paintlayer":
-                            state_node.save("tmp.png", 72., 72., krita.InfoObject(), state_node.bounds())
+                            state_node.save("tmp.png", 72., 72., krita.InfoObject(), frame_node.bounds())
                             current_icon = Image.open("tmp.png")
                             dmi.states[state_node.name()].frames = len(dir_node.childNodes())
                             dmi.states[state_node.name()].dirs = 8 if len(state_node.childNodes()) >= 8 else 4 # Directions are amount of layers under this group, truncated to 8 or 4
