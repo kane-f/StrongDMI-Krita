@@ -8,8 +8,8 @@
 
 ### Linux
 
-cd /usr/share/krita/resources/
-git clone https://github.com/kane-f/strongdmi-krita.git (may require root)
+* cd /usr/share/krita/resources/
+* git clone https://github.com/kane-f/strongdmi-krita.git (may require root)
 
 ## Features:
 
